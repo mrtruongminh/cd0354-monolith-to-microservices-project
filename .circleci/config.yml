@@ -20,24 +20,24 @@ jobs:
             export NODE_OPTIONS=--openssl-legacy-provider
             echo "-----------Building udagram-api-feed image-----------"
             docker build -t udagram-api-feed ./udagram-api-feed
-            docker tag udagram-api-feed $DOCKER_USERNAME/udagram-api-feed:v2
+            docker tag udagram-api-feed $DOCKER_USERNAME/udagram-api-feed:v0
             echo "-----------Building udagram-api-user image-----------"
             docker build -t udagram-api-user ./udagram-api-user
-            docker tag udagram-api-user $DOCKER_USERNAME/udagram-api-user:v2
+            docker tag udagram-api-user $DOCKER_USERNAME/udagram-api-user:v0
             echo "-----------Building udagram-frontend image-----------"
             docker build -t udagram-frontend ./udagram-frontend
-            docker tag udagram-frontend $DOCKER_USERNAME/udagram-frontend:v2
+            docker tag udagram-frontend $DOCKER_USERNAME/udagram-frontend:v0
             echo "-----------Building udagram-reverseproxy image-----------"
             docker build -t udagram-reverseproxy ./udagram-reverseproxy
-            docker tag udagram-reverseproxy $DOCKER_USERNAME/udagram-reverseproxy:v2
+            docker tag udagram-reverseproxy $DOCKER_USERNAME/udagram-reverseproxy:v0
             echo "-----------All images successfully built-----------"
             echo "-----------Logging in to Docker Hub-----------"
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             echo "-----------Pushing images to Docker Hub-----------"
-            docker push $DOCKER_USERNAME/udagram-api-feed:v2
-            docker push $DOCKER_USERNAME/udagram-api-user:v2
-            docker push $DOCKER_USERNAME/udagram-frontend:v2
-            docker push $DOCKER_USERNAME/udagram-reverseproxy:v2
+            docker push $DOCKER_USERNAME/udagram-api-feed:v0
+            docker push $DOCKER_USERNAME/udagram-api-user:v0
+            docker push $DOCKER_USERNAME/udagram-frontend:v0
+            docker push $DOCKER_USERNAME/udagram-reverseproxy:v0
 workflows:
   default:
     jobs:
